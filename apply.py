@@ -10,22 +10,6 @@ from time import sleep
 from os.path import abspath 
 import work
 
-def scroll_to(driver, element):
-    scroll = """
-        function move_up(element) {
-            element.scrollTop = element.scrollTop - 1000;
-        }
-
-        function move_down(element) {
-            element.scrollTop = element.scrollTop + 1000;
-        }
-
-        move_down(arguments[0]);
-        move_down(arguments[0]);
-        """
-    driver.execute_script(scroll, element)
-    sleep(2)
-
 
 def create_package(driver, company):
     driver.find_element_by_id('name').send_keys(company)
